@@ -10,7 +10,7 @@ public abstract class DomainAbs implements java.io.Serializable{
         this.id = id;
     }
 
-    public boolean validate () {
+    public boolean validate () { 
         if (getId() <= 0) { 
             return false;
         }     
