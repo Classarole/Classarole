@@ -2,8 +2,6 @@ package services;
 import domain.*;
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import domain.Account;
 
@@ -25,7 +23,7 @@ public class AccountSvcSioImpl implements IAccountSvc {
                 accounts = (List<Account>) ois.readObject();
                 ois.close();
             } catch (Exception e){ 
-                System.out.println("File Created Successfully");
+                System.out.println("Account Created Successfully");
             }
             if (accounts == null) {
                 accounts = new ArrayList<Account>();
@@ -36,7 +34,7 @@ public class AccountSvcSioImpl implements IAccountSvc {
             oos.flush();
             oos.close();
         } catch (Exception e){
-            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: create: Cannot Create File", e);
+            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: create: Cannot Create Account", e);
         }
         return account;
     }
@@ -55,7 +53,7 @@ public class AccountSvcSioImpl implements IAccountSvc {
                 }
             }
         } catch (Exception e){
-            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: retrieve: File Does Not Exist", e);
+            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: retrieve: Account Does Not Exist", e);
         }
         return null;
     }
@@ -81,7 +79,7 @@ public class AccountSvcSioImpl implements IAccountSvc {
             oos.flush();
             oos.close();
         } catch (Exception e){
-            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: update: File Does Not Exist", e);
+            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: update: Account Does Not Exist", e);
         }
         return account;
     }
@@ -98,9 +96,8 @@ public class AccountSvcSioImpl implements IAccountSvc {
             oos.flush();
             oos.close();
         } catch (Exception e){
-            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: delete: File Does Not Exist", e);
+            throw new ClassaroleSvcException("Error in Services: AccountSvcSioImpl: delete: Account Does Not Exist", e);
         }
         return account;
     }
-    
 }
